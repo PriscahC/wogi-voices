@@ -576,10 +576,10 @@ function Journey() {
 
 const TEAM = [
   {
-    name: "Pearl",
+    name: "Pearlnerry Awuor",
     role: "Founder & Executive Director",
     bio: "A born organiser. Pearl built WOGI Voices from the ground up, refusing to let women in informal settlements be invisible.",
-    initials: "P",
+    initials: "PA",
   },
   {
     name: "Grace Atieno",
