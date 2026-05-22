@@ -79,7 +79,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "WOGI Voices is a women-led grassroots organisation in Naivasha, Kenya building climate resilience, green livelihoods, and safe spaces for women and girls.",
       },
       { name: "author", content: "WOGI Voices" },
-      { property: "og:title", content: "WOGI Voices — Growing Resilience from the Ground Up" },
+      { property: "og:title", content: "WOGI Voices — Empower, Educate & Liberate Women & Girls" },
       {
         property: "og:description",
         content:
@@ -87,6 +87,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "WOGI Voices — Empower, Educate & Liberate Women & Girls" },
+      { name: "description", content: "Wogi Voices Showcase creates a beautiful website for Wogi Voices from provided documents." },
+      { property: "og:description", content: "Wogi Voices Showcase creates a beautiful website for Wogi Voices from provided documents." },
+      { name: "twitter:description", content: "Wogi Voices Showcase creates a beautiful website for Wogi Voices from provided documents." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/98fb81fb-f9d4-4336-bac0-89443a8f0eca/id-preview-900cfac9--e7423e3f-a57b-4082-90df-c97b95835e15.lovable.app-1779439621777.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/98fb81fb-f9d4-4336-bac0-89443a8f0eca/id-preview-900cfac9--e7423e3f-a57b-4082-90df-c97b95835e15.lovable.app-1779439621777.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
