@@ -72,22 +72,33 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "WOGI Voices — Empower, Educate & Liberate Women & Girls" },
+      {
+        name: "description",
+        content:
+          "WOGI Voices is a women-led grassroots organisation in Naivasha, Kenya building climate resilience, green livelihoods, and safe spaces for women and girls.",
+      },
+      { name: "author", content: "WOGI Voices" },
+      { property: "og:title", content: "WOGI Voices — Growing Resilience from the Ground Up" },
+      {
+        property: "og:description",
+        content:
+          "Women-led. Community-owned. Rooted in Naivasha. Building a future where women and girls lead the transformation.",
+      },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
+      { rel: "stylesheet", href: appCss },
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
-        href: appCss,
+        href: "https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,500&family=Nunito:wght@300;400;500;600;700;800&display=swap",
       },
     ],
   }),
+
   shellComponent: RootShell,
   component: RootComponent,
   notFoundComponent: NotFoundComponent,
