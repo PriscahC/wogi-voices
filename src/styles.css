@@ -1,0 +1,161 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-border: var(--border);
+  --color-ring: var(--ring);
+
+  /* WOGI brand */
+  --color-pink: var(--pink);
+  --color-deep-pink: var(--deep-pink);
+  --color-brown: var(--brown);
+  --color-skin: var(--skin);
+  --color-blush: var(--blush);
+
+  --font-display: "Playfair Display", ui-serif, Georgia, serif;
+  --font-body: "Nunito", ui-sans-serif, system-ui, sans-serif;
+}
+
+:root {
+  --radius: 0.625rem;
+
+  /* WOGI Voices brand */
+  --pink: #e8197a;
+  --deep-pink: #c01060;
+  --brown: #1a0a00;
+  --skin: #c47a3a;
+  --blush: #fff0f7;
+
+  --background: #ffffff;
+  --foreground: #1a0a00;
+  --card: #ffffff;
+  --card-foreground: #1a0a00;
+  --primary: #e8197a;
+  --primary-foreground: #ffffff;
+  --secondary: #fff0f7;
+  --secondary-foreground: #1a0a00;
+  --muted: #faf3f0;
+  --muted-foreground: #6b4a3f;
+  --accent: #c47a3a;
+  --accent-foreground: #ffffff;
+  --border: rgba(26, 10, 0, 0.08);
+  --ring: #e8197a;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-body);
+    font-feature-settings: "ss01", "cv01";
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4, h5 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+}
+
+/* Reveal on scroll */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition:
+    opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal.in {
+  opacity: 1;
+  transform: none;
+}
+
+.section-label {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.72rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--pink);
+}
+
+.btn-pink {
+  background: var(--pink);
+  color: #fff;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease;
+  box-shadow: 0 8px 24px -8px rgba(232, 25, 122, 0.55);
+}
+.btn-pink:hover {
+  background: var(--deep-pink);
+  transform: scale(1.04);
+  box-shadow: 0 14px 36px -8px rgba(232, 25, 122, 0.7);
+}
+
+.btn-outline-pink {
+  border: 1.5px solid var(--pink);
+  color: var(--deep-pink);
+  background: transparent;
+  transition: all 0.25s ease;
+}
+.btn-outline-pink:hover {
+  background: var(--blush);
+  transform: scale(1.04);
+}
+
+/* Hero headline word animation */
+@keyframes wordIn {
+  from { opacity: 0; transform: translateY(40px); filter: blur(8px); }
+  to   { opacity: 1; transform: none; filter: blur(0); }
+}
+.word-in {
+  display: inline-block;
+  opacity: 0;
+  animation: wordIn 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Nav scroll style */
+.nav-solid {
+  background: rgba(26, 10, 0, 0.92);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 1px 0 rgba(232, 25, 122, 0.35);
+}
+
+/* Diamond bullet */
+.diamond::before {
+  content: "♦";
+  color: var(--pink);
+  margin-right: 0.6rem;
+}
