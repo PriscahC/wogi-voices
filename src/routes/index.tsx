@@ -1,6 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import heroWoman from "@/assets/hero-woman.jpg";
+import heroEmpowerment from "@/assets/hero-women-empowerment.webp";
+import heroResilience from "@/assets/hero-community-resilience.webp";
+import heroGbv from "@/assets/hero-gbv.webp";
 import handsSoil from "@/assets/hands-soil.jpg";
 import womenCircle from "@/assets/women-circle.jpg";
 import verticalGarden from "@/assets/vertical-garden.jpg";
@@ -204,22 +207,53 @@ function Nav() {
 
 /* ---------------- hero ---------------- */
 
+const HERO_SLIDES = [
+  { src: heroWoman, alt: "Human rights advocacy", label: "Human Rights Advocacy" },
+  { src: heroEmpowerment, alt: "Women and girls empowerment", label: "Women & Girls Empowerment" },
+  { src: heroResilience, alt: "Community resilience and climate action", label: "Community Resilience & Climate Action" },
+  { src: heroGbv, alt: "Gender-based violence prevention dialogue", label: "Gender-Based Violence Prevention" },
+];
+
 function Hero() {
   const headline = ["Amplifying", "Voices.", "Building", "Resilience."];
+  const [slide, setSlide] = React.useState(0);
+  React.useEffect(() => {
+    const id = setInterval(() => setSlide((s) => (s + 1) % HERO_SLIDES.length), 5500);
+    return () => clearInterval(id);
+  }, []);
   return (
     <section
       id="top"
       className="relative isolate flex min-h-[100svh] items-center overflow-hidden bg-[var(--brown)]"
     >
-      <img
-        src={heroWoman}
-        alt="A Kenyan woman leading her community"
-        width={1920}
-        height={1080}
-        className="absolute inset-0 h-full w-full object-cover opacity-65"
-      />
+      {HERO_SLIDES.map((s, i) => (
+        <img
+          key={i}
+          src={s.src}
+          alt={s.alt}
+          width={1920}
+          height={1080}
+          className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-[1400ms] ease-out ${i === slide ? "opacity-65" : "opacity-0"}`}
+        />
+      ))}
       <div className="absolute inset-0 bg-gradient-to-br from-[var(--brown)]/95 via-[var(--brown)]/55 to-[var(--deep-pink)]/55" />
       <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[var(--brown)] to-transparent" />
+
+      <div className="absolute bottom-8 right-5 z-10 flex items-center gap-3 sm:right-8">
+        <span className="hidden text-xs font-semibold uppercase tracking-widest text-white/80 sm:inline">
+          {HERO_SLIDES[slide].label}
+        </span>
+        <div className="flex gap-2">
+          {HERO_SLIDES.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setSlide(i)}
+              aria-label={`Slide ${i + 1}`}
+              className={`h-1.5 rounded-full transition-all ${i === slide ? "w-8 bg-[var(--pink)]" : "w-4 bg-white/40 hover:bg-white/70"}`}
+            />
+          ))}
+        </div>
+      </div>
 
       <div className="relative mx-auto w-full max-w-7xl px-5 pt-32 pb-24 sm:px-8 sm:pt-40">
         <p
