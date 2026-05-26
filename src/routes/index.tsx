@@ -216,8 +216,8 @@ const HERO_SLIDES = [
 
 function Hero() {
   const headline = ["Amplifying", "Voices.", "Building", "Resilience."];
-  const [slide, setSlide] = React.useState(0);
-  React.useEffect(() => {
+  const [slide, setSlide] = useState(0);
+  useEffect(() => {
     const id = setInterval(() => setSlide((s) => (s + 1) % HERO_SLIDES.length), 5500);
     return () => clearInterval(id);
   }, []);
